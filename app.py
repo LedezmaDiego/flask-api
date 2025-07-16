@@ -112,3 +112,11 @@ def albun(id):
           'ArtistId': fila['ArtistId'],
           'url': url_for('albun', id=id, _external=True)}
    return jsonify(res)
+
+@app.route("/api")
+def index():
+    rutas = {
+        "artistas": url_for("artistas", _external=True),
+        "albunes": url_for("albunes", _external=True),
+    }
+    return jsonify(rutas)
